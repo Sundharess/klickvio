@@ -1,0 +1,209 @@
+/* ==========================================================================
+   Klickvio — Animations
+   ========================================================================== */
+
+/* ---- Keyframes ---- */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.08); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes scrollDot {
+  0% { opacity: 0; transform: translate(-50%, 0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%, 16px); }
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+@keyframes loaderPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.5); }
+  50% { transform: scale(1.06); box-shadow: 0 0 0 14px rgba(124, 58, 237, 0); }
+}
+
+@keyframes loaderBar {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(350%); }
+}
+
+@keyframes pulseRing {
+  0% { transform: scale(1); opacity: 0.7; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(36px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeLeft {
+  from { opacity: 0; transform: translateX(-36px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeRight {
+  from { opacity: 0; transform: translateX(36px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ---- Blobs ---- */
+.hero-blob {
+  animation: floatBlob 14s ease-in-out infinite;
+}
+
+.blob-2 {
+  animation-delay: -4s;
+  animation-duration: 18s;
+}
+
+.blob-3 {
+  animation-delay: -8s;
+  animation-duration: 12s;
+}
+
+/* ---- Scroll reveal (Intersection Observer driven) ---- */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(36px);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-36px);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(36px);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.92);
+}
+
+.reveal.in-view,
+.reveal-up.in-view,
+.reveal-left.in-view,
+.reveal-right.in-view,
+.reveal-scale.in-view {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+/* Stagger helper delays */
+.delay-1 { transition-delay: 0.08s; }
+.delay-2 { transition-delay: 0.16s; }
+.delay-3 { transition-delay: 0.24s; }
+.delay-4 { transition-delay: 0.32s; }
+.delay-5 { transition-delay: 0.4s; }
+.delay-6 { transition-delay: 0.48s; }
+.delay-7 { transition-delay: 0.56s; }
+.delay-8 { transition-delay: 0.64s; }
+
+/* ---- Mouse glow ---- */
+.mouse-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.14), transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+  will-change: transform;
+}
+
+/* ---- Hover lift ---- */
+.hover-lift {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+/* ---- Loading skeleton shimmer (portfolio placeholders) ---- */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 30%, rgba(255,255,255,0.06) 50%, transparent 70%);
+  transform: translateX(-100%);
+  animation: shimmerMove 2.6s ease-in-out infinite;
+}
+
+@keyframes shimmerMove {
+  100% { transform: translateX(100%); }
+}
+
+/* ---- Counter number pop ---- */
+.stat-number.counted {
+  animation: scaleIn 0.5s ease;
+}
+
+/* ---- Page transition overlay ---- */
+.page-transition {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  background: var(--primary);
+  transform: scaleY(0);
+  transform-origin: top;
+  pointer-events: none;
+}
+
+.page-transition.animate {
+  animation: pageWipe 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+@keyframes pageWipe {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.1% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}

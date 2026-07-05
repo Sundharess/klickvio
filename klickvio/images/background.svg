@@ -1,0 +1,28 @@
+<svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="bgBlob1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#7C3AED" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7C3AED" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgBlob2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#06B6D4" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#06B6D4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="bgBlob3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1440" height="900" fill="#08101F"/>
+  <circle cx="220" cy="180" r="340" fill="url(#bgBlob1)"/>
+  <circle cx="1220" cy="260" r="380" fill="url(#bgBlob2)"/>
+  <circle cx="760" cy="760" r="420" fill="url(#bgBlob3)"/>
+  <g opacity="0.05" stroke="#F8FAFC" stroke-width="1">
+    <line x1="0" y1="150" x2="1440" y2="150"/>
+    <line x1="0" y1="450" x2="1440" y2="450"/>
+    <line x1="0" y1="750" x2="1440" y2="750"/>
+    <line x1="360" y1="0" x2="360" y2="900"/>
+    <line x1="720" y1="0" x2="720" y2="900"/>
+    <line x1="1080" y1="0" x2="1080" y2="900"/>
+  </g>
+</svg>
